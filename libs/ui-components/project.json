@@ -1,0 +1,55 @@
+{
+  "name": "ui-components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui-components/src",
+  "projectType": "library",
+  "tags": ["ui", "ui-components"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.{ts,tsx,js,jsx,mts}"],
+        "quiet": true,
+        "cache": true,
+        "cacheLocation": "./node_modules/.cache/eslint"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/libs/ui-components"],
+      "options": {
+        "coverage": true,
+        "testTimeout": 20000,
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/libs/ui-components"
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ui-components/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true,
+          "verbose": false
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ui-components",
+        "configDir": "libs/ui-components/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true,
+          "verbose": false
+        }
+      }
+    }
+  }
+}
