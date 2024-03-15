@@ -1,0 +1,5 @@
+.p-overlay-badge .p-badge {
+  &.ui-badge--inner-overlay {
+    @apply transform-none;
+  }
+}

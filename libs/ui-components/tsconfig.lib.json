@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": [
+      "node",
+      "vite/client",
+      "../../node_modules/@nx/react/typings/cssmodule.d.ts",
+      "../../node_modules/@nx/react/typings/image.d.ts"
+    ]
+  },
+  "files": ["i18n/*.ts"],
+  "exclude": ["**/*.stories.tsx"],
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+}
